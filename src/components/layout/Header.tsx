@@ -63,7 +63,7 @@ export default function Header() {
           </span>
             )} */}
           </Link>
-          <button
+          <button type="button"
             className="p-1 border"
             onClick={() => setMobileNavOpen(prev => !prev)}>
             <Bars2 />
