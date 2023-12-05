@@ -1,4 +1,5 @@
 'use client';
+
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import MenuItem from "@/components/menu/MenuItem";
 import Image from "next/image";
@@ -15,7 +16,7 @@ export default function HomeMenu() {
   // }, []);
 
 
-  
+
   return (
     <section className="">
       <div className="absolute left-0 right-0 w-full justify-start">
@@ -32,9 +33,9 @@ export default function HomeMenu() {
           mainHeader={'Our Best Sellers'} />
       </div>
       <div className="grid sm:grid-cols-3 gap-4">
-        {bestSellers?.length > 0 && bestSellers.map(item => (
-          <MenuItem key={item._id} {...item} />
-        ))}
+        {/* {bestSellers?.length > 0 && bestSellers.map(item => (
+          // <MenuItem key={item._id} {...item} />
+        ))} */}
       </div>
     </section>
   );
