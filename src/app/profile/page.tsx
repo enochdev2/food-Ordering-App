@@ -58,13 +58,15 @@ export default function ProfilePage() {
   //   return 'Loading...';
   // }
 
-  // if (status === 'unauthenticated') {
-  //   return redirect('/login');
-  // }
+  if (status === 'unauthenticated') {
+    return redirect('/login');
+  }
 
   return (
     <section className="mt-8">
-      <UserTabs isAdmin={isAdmin} />
+      <UserTabs 
+      // isAdmin={isAdmin}
+       />
       <div className="max-w-2xl mx-auto mt-8">
         <UserForm user={user} onSave={handleProfileInfoUpdate} />
       </div>
