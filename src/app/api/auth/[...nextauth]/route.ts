@@ -9,7 +9,7 @@ import db from "@/libs/db";
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXT_SECRET,
-  adapter: MongoDBAdapter(clientPromise)  as any,
+  // adapter: MongoDBAdapter(clientPromise)  as any,
   providers: [
     GoogleProvider({
       clientId: process.env.CLIENT_ID as string,
