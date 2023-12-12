@@ -1,5 +1,4 @@
 import clientPromise from "@/libs/mongoClients";
-// import {UserInfo} from "@/models/UserInfo";
 import bcrypt from "bcrypt";
 import * as mongoose from "mongoose";
 import { User } from "@/models/User";
@@ -28,7 +27,7 @@ export const authOptions: any = {
         },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials: any, req) {
+      async authorize(credentials: {email:string,password:string}, req) {
         const email = credentials?.email;
         const password = credentials?.password;
 
@@ -42,6 +41,7 @@ export const authOptions: any = {
       },
     }),
   ],
+  
   async session({session,}){
     if(token){
         session.user._id = token._id

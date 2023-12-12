@@ -5,6 +5,11 @@ export interface MenuItem {
     name: string,
     image: string,
 }
+export interface MenuItems {
+    _id:string,
+    name: string,
+    image: string,
+}
 export interface FormInfo {
     image :string,
     name :string,
@@ -13,7 +18,7 @@ export interface FormInfo {
     sizes :any,
     extraIngredientPrices :any,
     category :string,
-    _id?:string
+    _id?:string|string[] | null | undefined
 }
 
 export interface ItmeProps {
@@ -31,6 +36,19 @@ export interface User {
     name: string
     email: string
 }
+export interface Extra {
+    price: string | number,
+    name: string
+}
+
+
+export interface Product {
+    image:string, 
+    name:string,
+    size:{name:number|string,}
+    extras:any
+}
+
 export interface Order {
     _id: string | number,
     name: string

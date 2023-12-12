@@ -5,10 +5,10 @@ import EditableImage from "@/components/layout/EditableImage";
 import MenuItemForm from "@/components/layout/MenuItemForm";
 import UserTabs from "@/components/layout/UserTabs";
 import {useProfile} from "@/components/UseProfile";
-import { MenuItem } from "@/interface";
+import { FormInfo, MenuItem } from "@/interface";
 import Link from "next/link";
 import {redirect, useParams} from "next/navigation";
-import {useEffect, useState} from "react";
+import {FormEvent, useEffect, useState} from "react";
 import toast from "react-hot-toast";
 
 export default function EditMenuItemPage() {
@@ -28,7 +28,7 @@ export default function EditMenuItemPage() {
     })
   }, []);
 
-  async function handleFormSubmit(ev, data) {
+  async function handleFormSubmit(ev:FormEvent, data:FormInfo) {
     ev.preventDefault();
     data = {...data, _id:id};
     const savingPromise = new Promise(async (resolve:any, reject) => {
@@ -76,13 +76,13 @@ export default function EditMenuItemPage() {
     return redirect('/menu-items');
   }
 
-  if (loading) {
-    return 'Loading user info...';
-  }
+  // if (loading) {
+  //   return 'Loading user info...';
+  // }
 
-  if (!data.admin) {
-    return 'Not an admin.';
-  }
+  // if (!data.admin) {
+  //   return 'Not an admin.';
+  // }
 
   return (
     <section className="mt-8">

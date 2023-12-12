@@ -2,18 +2,19 @@
 
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import MenuItem from "@/components/menu/MenuItem";
+import { FormInfo, MenuItems } from "@/interface";
 import Image from "next/image";
 import {useEffect, useState} from "react";
 
 export default function HomeMenu() {
   const [bestSellers, setBestSellers] = useState([]);
-  // useEffect(() => {
-  //   fetch('/api/menu-items').then(res => {
-  //     res.json().then(menuItems => {
-  //       setBestSellers(menuItems.slice(-3));
-  //     });
-  //   });
-  // }, []);
+  useEffect(() => {
+    fetch('/api/menu-items').then(res => {
+      res.json().then(menuItems => {
+        setBestSellers(menuItems.slice(-3));
+      });
+    });
+  }, []);
 
 
 
@@ -33,9 +34,9 @@ export default function HomeMenu() {
           mainHeader={'Our Best Sellers'} />
       </div>
       <div className="grid sm:grid-cols-3 gap-4">
-        {/* {bestSellers?.length > 0 && bestSellers.map(item => (
-          // <MenuItem key={item._id} {...item} />
-        ))} */}
+        {bestSellers?.length > 0 && bestSellers.map((item:FormInfo|any) => (
+          <MenuItem key={item._id} {...item} />
+        ))}
       </div>
     </section>
   );

@@ -5,7 +5,6 @@ import Header from "@/components/layout/Header";
 import Provider from "@/SessionProvider";
 import {Toaster} from "react-hot-toast";
 import { AppProvider } from "@/components/AppContext";
-// import Toaster from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
