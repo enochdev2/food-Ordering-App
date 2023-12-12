@@ -1,4 +1,4 @@
-export default function SectionHeaders({subHeader,mainHeader}: { subHeader: string; mainHeader: string; }) {
+export default function SectionHeaders({subHeader,mainHeader}: { subHeader: string | null , mainHeader: string; }) {
   return (
     <>
       <h3 className="uppercase text-gray-500 font-semibold leading-4">

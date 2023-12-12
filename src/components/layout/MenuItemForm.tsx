@@ -18,13 +18,13 @@ export default function MenuItemForm({onSubmit,menuItem}:{onSubmit:any,menuItem:
     setExtraIngredientPrices,
   ] = useState(menuItem?.extraIngredientPrices || []);
 
-  // useEffect(() => {
-  //   fetch('/api/categories').then(res => {
-  //     res.json().then(categories => {
-  //       setCategories(categories);
-  //     });
-  //   });
-  // }, []);
+  useEffect(() => {
+    fetch('/api/categories').then(res => {
+      res.json().then(categories => {
+        setCategories(categories);
+      });
+    });
+  }, []);
 
   return (
     <form
@@ -35,8 +35,7 @@ export default function MenuItemForm({onSubmit,menuItem}:{onSubmit:any,menuItem:
       }
       className="mt-8 max-w-2xl mx-auto">
       <div
-        className="md:grid items-start gap-4"
-        style={{gridTemplateColumns:'.3fr .7fr'}}>
+        className="formdiv md:grid items-start gap-4">
         <div>
           <EditableImage link={image} setLink={setImage} />
         </div>

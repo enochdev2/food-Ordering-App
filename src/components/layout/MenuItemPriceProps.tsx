@@ -2,29 +2,30 @@ import ChevronDown from "@/components/icons/ChevronDown";
 import ChevronUp from "@/components/icons/ChevronUp";
 import Plus from "@/components/icons/Plus";
 import Trash from "@/components/icons/Trash";
-import {useState} from "react";
+import { ItmeProps } from "@/interface";
+import {ChangeEvent, useState} from "react";
 
-export default function MenuItemPriceProps({name,addLabel,props,setProps}) {
+export default function MenuItemPriceProps({name,addLabel,props,setProps}:ItmeProps) {
 
   const [isOpen, setIsOpen] = useState(false);
 
   function addProp() {
-    setProps(oldProps => {
+    setProps((oldProps:any) => {
       return [...oldProps, {name:'', price:0}];
     });
   }
 
-  function editProp(ev, index, prop) {
+  function editProp(ev:ChangeEvent<HTMLInputElement>, index:number, prop:string) {
     const newValue = ev.target.value;
-    setProps(prevSizes => {
+    setProps((prevSizes:any) => {
       const newSizes = [...prevSizes];
       newSizes[index][prop] = newValue;
       return newSizes;
     });
   }
 
-  function removeProp(indexToRemove) {
-    setProps(prev => prev.filter((v,index) => index !== indexToRemove));
+  function removeProp(indexToRemove:number) {
+    setProps((prev:any) => prev.filter((v:any,index:number) => index !== indexToRemove));
   }
 
   return (
@@ -61,7 +62,7 @@ export default function MenuItemPriceProps({name,addLabel,props,setProps}) {
               />
             </div>
             <div>
-              <button type="button"
+              <button title="button" type="button"
                       onClick={() => removeProp(index)}
                       className="bg-white mb-2 px-2">
                 <Trash />

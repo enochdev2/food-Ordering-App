@@ -5,6 +5,7 @@ import EditableImage from "@/components/layout/EditableImage";
 import MenuItemForm from "@/components/layout/MenuItemForm";
 import UserTabs from "@/components/layout/UserTabs";
 import {useProfile} from "@/components/UseProfile";
+import { MenuItem } from "@/interface";
 import Link from "next/link";
 import {redirect, useParams} from "next/navigation";
 import {useEffect, useState} from "react";
@@ -21,7 +22,7 @@ export default function EditMenuItemPage() {
   useEffect(() => {
     fetch('/api/menu-items').then(res => {
       res.json().then(items => {
-        const item = items.find(i => i._id === id);
+        const item = items.find((i:MenuItem) => i._id === id);
         setMenuItem(item);
       });
     })
@@ -30,7 +31,7 @@ export default function EditMenuItemPage() {
   async function handleFormSubmit(ev, data) {
     ev.preventDefault();
     data = {...data, _id:id};
-    const savingPromise = new Promise(async (resolve, reject) => {
+    const savingPromise = new Promise(async (resolve:any, reject) => {
       const response = await fetch('/api/menu-items', {
         method: 'PUT',
         body: JSON.stringify(data),
@@ -52,7 +53,7 @@ export default function EditMenuItemPage() {
   }
 
   async function handleDeleteClick() {
-    const promise = new Promise(async (resolve, reject) => {
+    const promise = new Promise(async (resolve:any, reject) => {
       const res = await fetch('/api/menu-items?_id='+id, {
         method: 'DELETE',
       });
@@ -85,7 +86,9 @@ export default function EditMenuItemPage() {
 
   return (
     <section className="mt-8">
-      <UserTabs isAdmin={true} />
+      <UserTabs
+      //  isAdmin={true} 
+       />
       <div className="max-w-2xl mx-auto mt-8">
         <Link href={'/menu-items'} className="button">
           <Left />

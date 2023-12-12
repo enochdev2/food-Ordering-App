@@ -7,6 +7,10 @@ section.hero {
   grid-template-columns: 0.4fr 0.6fr;
 }
 
+.formdiv{
+  grid-template-columns: 0.3fr 0.7fr
+}
+
 select,
 input[type="email"],
 input[type="password"],

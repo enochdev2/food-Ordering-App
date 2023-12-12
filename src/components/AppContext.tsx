@@ -1,11 +1,11 @@
 'use client';
 import {SessionProvider} from "next-auth/react";
-import {createContext, useEffect, useState} from "react";
+import {ReactNode, createContext, useEffect, useState} from "react";
 import toast from "react-hot-toast";
 
 export const CartContext = createContext({});
 
-export function cartProductPrice(cartProduct) {
+export function cartProductPrice(cartProduct:any) {
   let price = cartProduct.basePrice;
   if (cartProduct.size) {
     price += cartProduct.size.price;
@@ -18,10 +18,10 @@ export function cartProductPrice(cartProduct) {
   return price;
 }
 
-export function AppProvider({children}) {
+export function AppProvider({children}:{children:ReactNode}) {
   const [cartProducts,setCartProducts] = useState([]);
 
-  const ls = typeof window !== 'undefined' ? window.localStorage : null;
+  const ls:any = typeof window !== 'undefined' ? window.localStorage : null;
 
   useEffect(() => {
     if (ls && ls.getItem('cart')) {
@@ -34,7 +34,7 @@ export function AppProvider({children}) {
     saveCartProductsToLocalStorage([]);
   }
 
-  function removeCartProduct(indexToRemove) {
+  function removeCartProduct(indexToRemove:any) {
     setCartProducts(prevCartProducts => {
       const newCartProducts = prevCartProducts
         .filter((v,index) => index !== indexToRemove);
@@ -44,14 +44,14 @@ export function AppProvider({children}) {
     toast.success('Product removed');
   }
 
-  function saveCartProductsToLocalStorage(cartProducts) {
+  function saveCartProductsToLocalStorage(cartProducts:any) {
     if (ls) {
       ls.setItem('cart', JSON.stringify(cartProducts));
     }
   }
 
-  function addToCart(product, size=null, extras=[]) {
-    setCartProducts(prevProducts => {
+  function addToCart(product:any, size=null, extras=[]) {
+    setCartProducts((prevProducts) => {
       const cartProduct = {...product, size, extras};
       const newProducts = [...prevProducts, cartProduct];
       saveCartProductsToLocalStorage(newProducts);

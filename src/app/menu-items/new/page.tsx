@@ -5,6 +5,7 @@ import EditableImage from "@/components/layout/EditableImage";
 import MenuItemForm from "@/components/layout/MenuItemForm";
 import UserTabs from "@/components/layout/UserTabs";
 import {useProfile} from "@/components/UseProfile";
+import { FormInfo } from "@/interface";
 import Link from "next/link";
 import {redirect} from "next/navigation";
 import {FormEvent, useState} from "react";
@@ -15,7 +16,7 @@ export default function NewMenuItemPage() {
   const [redirectToItems, setRedirectToItems] = useState(false);
   const {loading, data} = useProfile();
 
-  async function handleFormSubmit(ev:FormEvent<HTMLFormElement>, data:any) {
+  async function handleFormSubmit(ev:FormEvent<HTMLFormElement>, data:FormInfo) {
     ev.preventDefault();
     const savingPromise = new Promise(async (resolve:any, reject) => {
       const response = await fetch('/api/menu-items', {

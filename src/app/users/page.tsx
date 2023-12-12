@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 export default function UsersPage() {
 
   const [users, setUsers] = useState([]);
-  const {loading,data} = useProfile();
+  // const {loading,data} = useProfile();
 
   useEffect(() => {
     fetch('/api/users').then(response => {
@@ -17,13 +17,13 @@ export default function UsersPage() {
     })
   }, []);
 
-  if (loading) {
-    return 'Loading user info...';
-  }
+  // if (loading) {
+  //   return 'Loading user info...';
+  // }
 
-  if (!data.admin) {
-    return 'Not an admin';
-  }
+  // if (!data.admin) {
+  //   return 'Not an admin';
+  // }
 
   return (
     <section className="max-w-2xl mx-auto mt-8">
