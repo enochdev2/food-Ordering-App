@@ -19,7 +19,7 @@ export function cartProductPrice(cartProduct:any) {
 }
 
 export function AppProvider({children}:{children:ReactNode}) {
-  const [cartProducts,setCartProducts] = useState([]);
+  const [cartProducts,setCartProducts] = useState<any>([]);
 
   const ls:any = typeof window !== 'undefined' ? window.localStorage : null;
 
@@ -35,9 +35,9 @@ export function AppProvider({children}:{children:ReactNode}) {
   }
 
   function removeCartProduct(indexToRemove:any) {
-    setCartProducts(prevCartProducts => {
+    setCartProducts((prevCartProducts:any) => {
       const newCartProducts = prevCartProducts
-        .filter((v,index) => index !== indexToRemove);
+        .filter((v:any,index:any) => index !== indexToRemove);
       saveCartProductsToLocalStorage(newCartProducts);
       return newCartProducts;
     });
@@ -51,7 +51,7 @@ export function AppProvider({children}:{children:ReactNode}) {
   }
 
   function addToCart(product:any, size=null, extras=[]) {
-    setCartProducts((prevProducts) => {
+    setCartProducts((prevProducts:any) => {
       const cartProduct = {...product, size, extras};
       const newProducts = [...prevProducts, cartProduct];
       saveCartProductsToLocalStorage(newProducts);

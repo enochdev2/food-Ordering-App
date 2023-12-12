@@ -1,6 +1,7 @@
 'use client';
 import UserTabs from "@/components/layout/UserTabs";
 import {useProfile} from "@/components/UseProfile";
+import { User } from "@/interface";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 
@@ -27,9 +28,11 @@ export default function UsersPage() {
 
   return (
     <section className="max-w-2xl mx-auto mt-8">
-      <UserTabs isAdmin={true} />
+      <UserTabs 
+      // isAdmin={true}
+       />
       <div className="mt-8">
-        {users?.length > 0 && users.map(user => (
+        {users?.length > 0 && users.map((user:User) => (
           <div
             key={user._id}
             className="bg-gray-100 rounded-lg mb-2 p-1 px-4 flex items-center gap-4">

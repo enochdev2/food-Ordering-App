@@ -14,9 +14,9 @@ export default function MenuItem(menuItem:FormInfo) {
   const [
     selectedSize, setSelectedSize
   ] = useState<any>(sizes?.[0] || null);
-  const [selectedExtras, setSelectedExtras] = useState([]);
+  const [selectedExtras, setSelectedExtras] = useState<any>([]);
   const [showPopup, setShowPopup] = useState(false);
-  const {addToCart} = useContext(CartContext);
+  const {addToCart} = useContext(CartContext) as any;
 
   async function handleAddToCartButtonClick() {
     console.log('add to cart');
@@ -33,9 +33,9 @@ export default function MenuItem(menuItem:FormInfo) {
   function handleExtraThingClick(ev:ChangeEvent<HTMLInputElement>, extraThing:any) {
     const checked = ev.target.checked;
     if (checked) {
-      setSelectedExtras(prev=> [...prev, extraThing]);
+      setSelectedExtras((prev:any)=> [...prev, extraThing]);
     } else {
-      setSelectedExtras(prev => {
+      setSelectedExtras((prev:any) => {
         return prev.filter((e:any) => e.name !== extraThing.name);
       });
     }
@@ -61,8 +61,7 @@ export default function MenuItem(menuItem:FormInfo) {
             onClick={ev => ev.stopPropagation()}
             className="my-8 bg-white p-2 rounded-lg max-w-md">
             <div
-              className=" overflow-y-scroll p-2"
-              style={{maxHeight:'calc(100vh - 100px)'}}>
+              className=" menuItem overflow-y-scroll p-2">
               <Image
                 src={image}
                 alt={name}
@@ -99,7 +98,7 @@ export default function MenuItem(menuItem:FormInfo) {
                       <input
                         type="checkbox"
                         onChange={ev => handleExtraThingClick(ev, extraThing)}
-                        checked={selectedExtras.map(e => e._id).includes(extraThing._id)}
+                        checked={selectedExtras.map((e:any) => e._id).includes(extraThing._id)}
                         name={extraThing.name} />
                       {extraThing.name} +${extraThing.price}
                     </label>
@@ -116,6 +115,7 @@ export default function MenuItem(menuItem:FormInfo) {
                 </div>
               </FlyingButton> */}
               <button
+              title="button"
                 className="mt-2"
                 onClick={() => setShowPopup(false)}>
                 Cancel

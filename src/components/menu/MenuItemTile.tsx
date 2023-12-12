@@ -5,7 +5,7 @@ export default function MenuItemTile({onAddToCart, ...item}:any) {
   const {image, description, name, basePrice,
     sizes, extraIngredientPrices,
   } = item;
-  const hasSizesOrExtras = sizes?.length > 0 || extraIngredientPrices?.length > 0;
+  const hasSizesOrExtras:Boolean = sizes?.length > 0 || extraIngredientPrices?.length > 0;
   return (
     <div className="bg-gray-200 p-4 rounded-lg text-center
       group hover:bg-white hover:shadow-md hover:shadow-black/25 transition-all">

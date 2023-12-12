@@ -10,7 +10,9 @@ section.hero {
 .formdiv{
   grid-template-columns: 0.3fr 0.7fr
 }
-
+.menuItem{
+  max-height: calc(100vh - 100px)
+}
 select,
 input[type="email"],
 input[type="password"],
