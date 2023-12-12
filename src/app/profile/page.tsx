@@ -19,17 +19,17 @@ export default function ProfilePage() {
   const [profileFetched, setProfileFetched] = useState(false);
   const {status} = session;
 
-  // useEffect(() => {
-  //   if (status === 'authenticated') {
-  //     fetch('/api/profile').then(response => {
-  //       response.json().then(data => {
-  //         setUser(data);
-  //         setIsAdmin(data.admin);
-  //         setProfileFetched(true);
-  //       })
-  //     });
-  //   }
-  // }, [session, status]);
+  useEffect(() => {
+    if (status === 'authenticated') {
+      fetch('/api/profile').then(response => {
+        response.json().then(data => {
+          setUser(data);
+          setIsAdmin(data.admin);
+          setProfileFetched(true);
+        })
+      });
+    }
+  }, [session, status]);
 
   async function handleProfileInfoUpdate(ev:FormEvent<HTMLFormElement>, data) {
     ev.preventDefault();

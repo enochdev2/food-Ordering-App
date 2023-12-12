@@ -17,7 +17,9 @@ const UserSchema = new Schema(
     city: { type: String },
     country: { type: String },
     phone: { type: String },
-    role: { type: String, default: "user" },
+    role: { type: String,
+      enum : ["admin", "user"],
+      default: "user" },
   },
   { timestamps: true }
 );

@@ -6,7 +6,9 @@ import { User } from "@/interface";
 import {SetStateAction, useState} from "react";
 
 export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
+
   const [userName, setUserName] = useState(user?.name || '');
+  console.log("🚀 ~ file: UserForm.tsx:10 ~ UserForm ~ userName:", userName)
   const [image, setImage] = useState(user?.image || '');
   const [phone, setPhone] = useState(user?.phone || '');
   const [streetAddress, setStreetAddress] = useState(user?.streetAddress || '');
@@ -16,6 +18,7 @@ export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
   const [admin, setAdmin] = useState(user?.admin || false);
   const {data:loggedInUserData} = useProfile();
 
+  const phones = phone || user?.phone
   function handleAddressChange(propName:string, value:SetStateAction<string>) {
     if (propName === 'phone') setPhone(value);
     if (propName === 'streetAddress') setStreetAddress(value);
@@ -35,7 +38,7 @@ export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
         className="grow"
         onSubmit={ev =>
           onSave(ev, {
-            name:userName, image, phone, admin,
+            name:userName, image, phones, admin,
             streetAddress, city, country, postalCode,
           })
         }
@@ -45,7 +48,7 @@ export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
         </label>
         <input
           type="text" placeholder="First and last name"
-          value={userName} onChange={ev => setUserName(ev.target.value)}
+          value={user?.name || userName} onChange={ev => setUserName(ev.target.value)}
         />
         <label>Email</label>
         <input
@@ -55,7 +58,7 @@ export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
           placeholder={'email'}
         />
         <AddressInputs
-          addressProps={{phone, streetAddress, postalCode, city, country}}
+          addressProps={{phones, streetAddress, postalCode, city, country}}
           setAddressProp={handleAddressChange}
         />
         {/* {loggedInUserData.admin && ( */}

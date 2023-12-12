@@ -11,6 +11,7 @@ export default function EditUserPage() {
   const {loading, data} = useProfile();
   const [user, setUser] = useState<User | null>(null);
   const {id} = useParams();
+  console.log("🚀 ~ file: page.tsx:14 ~ EditUserPage ~ id:", id)
 
   useEffect(() => {
     fetch('/api/profile?_id='+id).then(res => {

@@ -18,32 +18,41 @@ export async function PUT(req:Request) {
   db.connect()
 
   const user = await User.findOne(filter);
-  await User.updateOne(filter, {name, image});
+  await User.updateOne(filter, 
+    {$set:{name, image, ...otherUserInfo}},
+    {new: true});
+    
+    console.log("🚀 ~ file: route.ts:21 ~ PUT ~ user:", user)
 
   return Response.json(true);
 }
 
-// export async function GET(req:Request) {
-//   db.connect();
+export async function GET(req:Request) {
+  db.connect();
 
-//   const url = new URL(req.url);
-//   const _id = url.searchParams.get('_id');
+  const url = new URL(req.url);
+  const _id = url.searchParams.get('_id');
+  
+  
 
-//   let filterUser = {};
-//   if (_id) {
-//     filterUser = {_id};
-//   } else {
-//     const session = await getServerSession(authOptions);
-//     const email = session?.user?.email;
-//     if (!email) {
-//       return Response.json({});
-//     }
-//     filterUser = {email};
-//   }
+  let filterUser = {};
+  if (_id) {
+    filterUser = {_id};
+  } else {
+    const session = await getServerSession(authOptions);
+    const email = session?.user?.email;
+  
+    
+    if (!email) {
+      return Response.json({});
+    }
+    filterUser = {email};
+  }
 
-//   const user = await User.findOne(filterUser).lean();
-//   const userInfo = await UserInfo.findOne({email:user.email}).lean();
+  const user = await User.findOne(filterUser).lean();
+  console.log("🚀 ~ file: route.ts:49 ~ GET ~ user:", user)
+  
 
-//   return Response.json({...user, ...userInfo});
+  return Response.json(user);
 
-// }
+}

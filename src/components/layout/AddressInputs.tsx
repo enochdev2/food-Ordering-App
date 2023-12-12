@@ -1,12 +1,12 @@
 export default function AddressInputs({addressProps,setAddressProp,disabled=false}:any) {
-  const {phone, streetAddress, postalCode, city, country} = addressProps;
+  const {phones, streetAddress, postalCode, city, country} = addressProps;
   return (
     <>
       <label>Phone</label>
       <input
         disabled={disabled}
         type="tel" placeholder="Phone number"
-        value={phone || ''} onChange={ev => setAddressProp('phone', ev.target.value)} />
+        value={phones || ''} onChange={ev => setAddressProp('phone', ev.target.value)} />
       <label>Street address</label>
       <input
         disabled={disabled}
