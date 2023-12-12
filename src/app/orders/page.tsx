@@ -2,6 +2,7 @@
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import UserTabs from "@/components/layout/UserTabs";
 import { useProfile } from "@/components/UseProfile";
+import { Order } from "@/interface";
 import { dbTimeForHuman } from "@/libs/datetime";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -11,19 +12,19 @@ export default function OrdersPage() {
   const [loadingOrders, setLoadingOrders] = useState(true);
   // const {loading, data:profile} = useProfile();
 
-  // useEffect(() => {
-  //   fetchOrders();
-  // }, []);
+  useEffect(() => {
+    fetchOrders();
+  }, []);
 
-  // function fetchOrders() {
-  //   setLoadingOrders(true);
-  //   fetch('/api/orders').then(res => {
-  //     res.json().then(orders => {
-  //       setOrders(orders.reverse());
-  //       setLoadingOrders(false);
-  //     })
-  //   })
-  // }
+  function fetchOrders() {
+    setLoadingOrders(true);
+    fetch('/api/orders').then(res => {
+      res.json().then(orders => {
+        setOrders(orders.reverse());
+        setLoadingOrders(false);
+      })
+    })
+  }
 
   return (
     <section className="mt-8 max-w-2xl mx-auto">
@@ -33,7 +34,7 @@ export default function OrdersPage() {
       <div className="mt-8">
         {loadingOrders && <div>Loading orders...</div>}
         {orders?.length > 0 &&
-          orders.map((order) => (
+          orders.map((order:Order) => (
             <div
               key={order._id}
               className="bg-gray-100 mb-2 p-4 rounded-lg flex flex-col md:flex-row items-center gap-6"

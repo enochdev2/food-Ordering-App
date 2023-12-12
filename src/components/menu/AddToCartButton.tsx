@@ -17,10 +17,10 @@ export default function AddToCartButton({
           targetTop={'5%'}
           targetLeft={'95%'}
           src={image}>
-          <div onClick={onClick}>
-            Add to cart ${basePrice}
-          </div>
         </FlyingButton> */}
+        <div onClick={onClick}>
+          Add to cart ${basePrice}
+        </div>
       </div>
     );
   }

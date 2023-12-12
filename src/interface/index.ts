@@ -31,3 +31,11 @@ export interface User {
     name: string
     email: string
 }
+export interface Order {
+    _id: string | number,
+    name: string
+    userEmail: string,
+    createdAt: Date,
+    paid: Boolean,
+    cartProducts:[{name:string}]
+}
