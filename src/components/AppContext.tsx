@@ -27,7 +27,7 @@ export function AppProvider({children}:{children:ReactNode}) {
     if (ls && ls.getItem('cart')) {
       setCartProducts( JSON.parse( ls.getItem('cart') ) );
     }
-  }, []);
+  }, [ls]);
 
   function clearCart() {
     setCartProducts([]);

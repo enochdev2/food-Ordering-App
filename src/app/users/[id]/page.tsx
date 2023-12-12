@@ -2,13 +2,14 @@
 import UserForm from "@/components/layout/UserForm";
 import UserTabs from "@/components/layout/UserTabs";
 import {useProfile} from "@/components/UseProfile";
+import { User } from "@/interface";
 import {useParams} from "next/navigation";
-import {useEffect, useState} from "react";
+import {FormEvent, useEffect, useState} from "react";
 import toast from "react-hot-toast";
 
 export default function EditUserPage() {
   const {loading, data} = useProfile();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const {id} = useParams();
 
   useEffect(() => {
@@ -17,11 +18,11 @@ export default function EditUserPage() {
         setUser(user);
       });
     })
-  }, []);
+  }, [id]);
 
-  async function handleSaveButtonClick(ev, data) {
+  async function handleSaveButtonClick(ev:FormEvent, data:User) {
     ev.preventDefault();
-    const promise = new Promise(async (resolve, reject) => {
+    const promise = new Promise(async (resolve:any, reject) => {
       const res = await fetch('/api/profile', {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
@@ -40,17 +41,19 @@ export default function EditUserPage() {
     });
   }
 
-  if (loading) {
-    return 'Loading user profile...';
-  }
+  // if (loading) {
+  //   return 'Loading user profile...';
+  // }
 
-  if (!data.admin) {
-    return 'Not an admin';
-  }
+  // if (!data.admin) {
+  //   return 'Not an admin';
+  // }
 
   return (
     <section className="mt-8 mx-auto max-w-2xl">
-      <UserTabs isAdmin={true} />
+      <UserTabs
+      //  isAdmin={true} 
+       />
       <div className="mt-8">
         <UserForm user={user} onSave={handleSaveButtonClick} />
       </div>

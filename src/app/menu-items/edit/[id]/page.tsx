@@ -26,7 +26,7 @@ export default function EditMenuItemPage() {
         setMenuItem(item);
       });
     })
-  }, []);
+  }, [id]);
 
   async function handleFormSubmit(ev:FormEvent, data:FormInfo) {
     ev.preventDefault();

@@ -1,4 +1,4 @@
-export default function AddressInputs({addressProps,setAddressProp,disabled=false}) {
+export default function AddressInputs({addressProps,setAddressProp,disabled=false}:any) {
   const {phone, streetAddress, postalCode, city, country} = addressProps;
   return (
     <>
