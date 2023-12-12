@@ -8,7 +8,6 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import db from "@/libs/db";
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXT_SECRET,
   // adapter: MongoDBAdapter(clientPromise)  as any,
   providers: [
     GoogleProvider({
@@ -69,7 +68,7 @@ export const authOptions: NextAuthOptions = {
             console.log(res)
             return user;
           }
-
+          
         } catch (err) {
           console.log(err);
         }
@@ -85,7 +84,7 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
-
+    
     async session({ session, token }: { session: any; token: any }) {
       if (session.user) {
         session.user.email = token.email;
@@ -99,6 +98,7 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/",
   },
+  secret: process.env.NEXT_SECRET,
 };
 
 
