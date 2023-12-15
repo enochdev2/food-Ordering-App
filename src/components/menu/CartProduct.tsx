@@ -3,7 +3,7 @@ import Trash from "@/components/icons/Trash";
 import { Extra, Product } from "@/interface";
 import Image from "next/image";
 
-export default function CartProduct({product,onRemove}:{product:Product, onRemove:(index:string)=>{}|any}) {
+export default function CartProduct({product,onRemove}:{product:Product, onRemove:any}) {
   return (
     <div className="flex items-center gap-4 border-b py-4">
       <div className="w-24">
@@ -34,7 +34,7 @@ export default function CartProduct({product,onRemove}:{product:Product, onRemov
           <button
           title="button"
             type="button"
-            onClick={() => onRemove(index)}
+            // onClick={() => onRemove(index)}
             className="p-2">
             <Trash />
           </button>

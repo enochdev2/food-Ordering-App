@@ -5,7 +5,6 @@ import ShoppingCart from "@/components/icons/ShoppingCart";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useContext, useState } from "react";
-import AuthLinks from "../AuthLinks";
 
 export default function Header() {
   const { data: session, status } = useSession();

@@ -1,4 +1,6 @@
-export default function SuccessBox({children}) {
+import { ReactNode } from "react";
+
+export default function SuccessBox({children}:{children: ReactNode}) {
   return (
     <div className="text-center bg-green-100 p-4 rounded-lg border border-green-300">
       {children}

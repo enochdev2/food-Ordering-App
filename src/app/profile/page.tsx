@@ -31,7 +31,7 @@ export default function ProfilePage() {
     }
   }, [session, status]);
 
-  async function handleProfileInfoUpdate(ev:FormEvent<HTMLFormElement>, data) {
+  async function handleProfileInfoUpdate(ev:FormEvent<HTMLFormElement>, data:any) {
     ev.preventDefault();
 
     const savingPromise = new Promise(async (resolve:any, reject) => {

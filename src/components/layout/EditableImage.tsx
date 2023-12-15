@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { ChangeEvent } from "react";
 import toast from "react-hot-toast";
 
-export default function EditableImage({link, setLink}) {
+export default function EditableImage({link, setLink}:any) {
 
-  async function handleFileChange(ev) {
+  async function handleFileChange(ev:ChangeEvent<HTMLInputElement>) {
     const files = ev.target.files;
     if (files?.length === 1) {
       const data = new FormData;
