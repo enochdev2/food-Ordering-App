@@ -1,7 +1,7 @@
-import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 import {User} from "@/models/User";
 import db from "@/libs/db";
 import {getServerSession} from "next-auth";
+import { authOptions } from "@/libs/authOptions";
 
 export async function PUT(req:Request) {
   const data = await req.json();
