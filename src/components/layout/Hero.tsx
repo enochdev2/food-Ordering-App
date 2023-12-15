@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="hero md:mt-2 h-screen bg-[url('/P1330499.jpg')] bg-cover bg-center">
-      <div className="py-8 md:py-12">
+    <section className="hero w-screen md:mt-2 mb-8 h-screen bg-[url('/P1330499.jpg')] bg-cover bg-center ">
+      <div className="py-8 md:pl-8 md:py-12">
         <h1 className="text-4xl font-semibold">
           Everything<br />
           is better<br />
@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="relative hidden md:block">
-        <Image src={'/pizza.png'} layout={'fill'} objectFit={'contain'} alt={'pizza'} />
+        {/* <Image src={'/pizza.png'} layout={'fill'} objectFit={'contain'} alt={'pizza'} /> */}
       </div>
     </section>
   );
