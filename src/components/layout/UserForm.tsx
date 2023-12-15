@@ -67,7 +67,7 @@ export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
               <input
               title="checked"
                 id="adminCb" type="checkbox" className="" value={'1'}
-                checked={admin}
+                // checked={admin}
                 onChange={ev => setAdmin(ev.target.checked)}
               />
               <span>Admin</span>
