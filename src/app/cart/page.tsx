@@ -43,9 +43,9 @@ export default function CartPage() {
   function handleAddressChange(propName:any, value:any) {
     setAddress((prevAddress:any) => ({...prevAddress, [propName]:value}));
   }
+  
   async function proceedToCheckout(ev:FormEvent<HTMLFormElement>) {
     ev.preventDefault();
-    // address and shopping cart products
 
     const promise = new Promise((resolve : any, reject) => {
       fetch('/api/checkout', {
@@ -95,6 +95,7 @@ export default function CartPage() {
             <CartProduct
               key={index}
               product={product}
+              index={index}
               onRemove={removeCartProduct}
             />
           ))}
