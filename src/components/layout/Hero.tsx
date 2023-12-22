@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="hero w-screen md:mt-2 mb-8 h-screen bg-[url('/P1330499.jpg')] bg-cover bg-center ">
+    <section className="hero w-full md:mt-2 mb-8 h-screen bg-[url('/P1330499.jpg')] bg-cover bg-center ">
       <div className="py-8 md:pl-8 md:py-12">
         <h1 className="text-4xl font-semibold">
           Everything<br />
