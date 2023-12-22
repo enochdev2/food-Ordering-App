@@ -85,7 +85,7 @@ export default function Header() {
             TECH-NOCH EATERY
           </Link>
         </nav>
-        <nav className="flex items-center gap-8 grow bg-stone-800/40 text-gray-500 justify-center font-semibold rounded-full ">
+        <nav className="flex items-center gap-8 grow bg-stone-800/40 text-gray-500 justify-center py-2 font-semibold rounded-full ">
           <Link href={"/"}>Home</Link>
           <Link href={"/menu"}>Menu</Link>
           <Link href={"/#about"}>About</Link>

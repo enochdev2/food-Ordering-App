@@ -109,11 +109,14 @@ export default function MenuItem(menuItem:FormInfo) {
                 targetTop={'5%'}
                 targetLeft={'95%'}
                 src={image}>
-                <div className="primary sticky bottom-2"
-                     onClick={handleAddToCartButtonClick}>
-                  Add to cart ${selectedPrice}
-                </div>
               </FlyingButton> */}
+                <button title="button" onClick={handleAddToCartButtonClick}>
+
+                Add to cart ${selectedPrice}
+                    </button>
+              <div className="primary sticky bottom-2"
+                 >
+              </div>
               <button
               title="button"
                 className="mt-2"
