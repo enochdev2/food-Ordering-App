@@ -20,8 +20,8 @@ export default function Header() {
   }
   return (
     <header>
-      <div className="flex items-center md:hidden justify-between">
-        <Link className="text-primary font-semibold text-2xl" href={"/"}>
+      <div className="flex items-center bg-transparent md:hidden justify-between">
+        <Link className="text-primary shadow-slate-800 font-semibold text-xl" href={"/"}>
           TECH-NOCH EATERY
         </Link>
         <div className="flex gap-8 items-center">
@@ -79,13 +79,13 @@ export default function Header() {
         </div>
       )}
 
-      <div className="hidden md:flex items-center justify-between">
+      <div className="hidden md:flex bg-transparent items-center justify-between">
         <nav className="flex items-center gap-8 text-gray-500 font-semibold">
-          <Link className="text-primary font-semibold text-2xl" href={"/"}>
+          <Link className="text-primary font-semibold text-xl" href={"/"}>
             TECH-NOCH EATERY
           </Link>
         </nav>
-        <nav className="flex items-center gap-8 grow text-gray-500 justify-center font-semibold">
+        <nav className="flex items-center gap-8 grow bg-stone-800/40 text-gray-500 justify-center font-semibold rounded-full ">
           <Link href={"/"}>Home</Link>
           <Link href={"/menu"}>Menu</Link>
           <Link href={"/#about"}>About</Link>

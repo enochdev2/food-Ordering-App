@@ -4,18 +4,28 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="hero w-full md:mt-2 mb-8 h-screen bg-[url('/P1330499.jpg')] bg-cover bg-center ">
-      <div className="py-8 md:pl-8 md:py-12">
+    <section className=" relative  hero w-full md:mt-2 mb-8 h-screen  ">
+      <div className="absolute w-full h-screen bg-black/75 top-0 z-[-1] m-auto"></div>
+      <div className="absolute w-full m-auto h-screen top-0 z-[-2]">
+        <Image
+          src={"/food-delivery.jpeg"}
+          fill
+          // objectFit={"}
+          alt={"pizza"}
+        />
+      </div>
+      <div className="py-8 md:pl-8 md:py-12 bg-transparent">
         <h1 className="text-4xl font-semibold">
-          Everything<br />
-          is better<br />
+          Everything
+          <br />
+          is better
+          <br />
           with a&nbsp;
-          <span className="text-primary">
-            Pizza
-          </span>
+          <span className="text-primary">Pizza</span>
         </h1>
         <p className="my-6 text-gray-500 text-sm">
-          Pizza is the missing piece that makes every day complete, a simple yet delicious joy in life
+          Pizza is the missing piece that makes every day complete, a simple yet
+          delicious joy in life
         </p>
         <div className="flex gap-4 text-sm">
           <button className="flex justify-center bg-primary uppercase  items-center gap-2 text-white px-4 py-2 rounded-full">
@@ -28,8 +38,16 @@ export default function Hero() {
           </button>
         </div>
       </div>
-      <div className="relative hidden md:block">
-        {/* <Image src={'/pizza.png'} layout={'fill'} objectFit={'contain'} alt={'pizza'} /> */}
+      <div className="relative overflow-hidden w-full h-full  justify-end items-center  hidden md:flex pr-12 rounded-lg">
+      <div className="relative w-[400px] h-[400px] overflow-hidden   hidden md:block rounded-3xl">
+        <Image
+          src={"/rice3.jpeg"}
+         fill
+          // objectFit={"contain"}
+          alt={"pizza"}
+          className="justify-end self-center"
+        />
+      </div>
       </div>
     </section>
   );

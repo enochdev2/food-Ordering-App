@@ -1,13 +1,23 @@
 // import {isAdmin} from "@/app/api/auth/[...nextauth]/route";
 import db from "@/libs/db";
 import { MenuItem } from "@/models/MenuItem";
+import Error from "next/error";
 
 export async function POST(req: Request) {
   db.connect();
   const data = await req.json();
 
-  const menuItemDoc = await MenuItem.create(data);
+  try {
+    
+    const menuItemDoc = await new MenuItem(data);
+  await menuItemDoc.save();
   return Response.json(menuItemDoc);
+    
+  } catch (error:any) {
+   console.log(error.message);
+    
+  }
+
 }
 
 export async function PUT(req: Request) {
@@ -20,7 +30,13 @@ export async function PUT(req: Request) {
 
 export async function GET() {
   db.connect();
-  return Response.json(await MenuItem.find());
+  try {
+    const menu = await MenuItem.find()
+    console.log("🚀 ~ file: route.ts:36 ~ GET ~ menu:", menu)
+    return Response.json(menu);
+  } catch (error) {
+    
+  }
 }
 
 export async function DELETE(req: Request) {

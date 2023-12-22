@@ -39,13 +39,13 @@ export default function NewMenuItemPage() {
     setRedirectToItems(true);
   }
 
-  // if (redirectToItems) {
-  //   return redirect('/menu-items');
-  // }
+  if (redirectToItems) {
+    return redirect('/menu-items');
+  }
 
-  // if (loading) {
-  //   return 'Loading user info...';
-  // }
+  if (loading) {
+    return 'Loading user info...';
+  }
 
   // if (!data?.admin) {
   //   return 'Not an admin.';
