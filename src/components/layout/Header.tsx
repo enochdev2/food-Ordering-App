@@ -21,7 +21,10 @@ export default function Header() {
   return (
     <header>
       <div className="flex items-center bg-transparent md:hidden justify-between">
-        <Link className="text-primary shadow-slate-800 font-semibold text-xl" href={"/"}>
+        <Link
+          className="text-primary shadow-slate-800 font-semibold text-xl"
+          href={"/"}
+        >
           TECH-NOCH EATERY
         </Link>
         <div className="flex gap-8 items-center">
@@ -82,7 +85,8 @@ export default function Header() {
       <div className="hidden md:flex bg-transparent items-center justify-between">
         <nav className="flex items-center gap-8 text-gray-500 font-semibold">
           <Link className="text-primary font-semibold text-xl" href={"/"}>
-            TECH-NOCH EATERY
+            <p>TECH-NOCH</p>
+            <p>EATERY</p>
           </Link>
         </nav>
         <nav className="flex items-center gap-8 grow bg-stone-800/40 text-gray-500 justify-center py-2 font-semibold rounded-full ">
@@ -90,10 +94,9 @@ export default function Header() {
           <Link href={"/menu"}>Menu</Link>
           <Link href={"/#about"}>About</Link>
           <Link href={"/#contact"}>Contact</Link>
-
         </nav>
         <nav className="flex items-center gap-4 text-gray-500 font-semibold">
-        <Link href={"/cart"} className="relative">
+          <Link href={"/cart"} className="relative">
             <ShoppingCart />
             {/* {cartProducts?.length > 0 && (
               <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
@@ -124,7 +127,6 @@ export default function Header() {
               </button>
             </>
           )}
-       
         </nav>
       </div>
     </header>

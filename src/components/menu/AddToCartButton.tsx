@@ -1,4 +1,3 @@
-// import FlyingButton from 'react-flying-item'
 
 type AddToCartButtons = {
   hasSizesOrExtras: Boolean,
@@ -13,14 +12,9 @@ export default function AddToCartButton({
   if (!hasSizesOrExtras) {
     return (
       <div className="flying-button-parent mt-4">
-        {/* <FlyingButton
-          targetTop={'5%'}
-          targetLeft={'95%'}
-          src={image}>
-        </FlyingButton> */}
-        <div onClick={onClick}>
+        <button onClick={onClick}>
           Add to cart ${basePrice}
-        </div>
+        </button>
       </div>
     );
   }
