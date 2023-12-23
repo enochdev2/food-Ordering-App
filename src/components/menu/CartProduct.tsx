@@ -10,7 +10,7 @@ export default function CartProduct({
 }: {
   product: Product;
   onRemove: any;
-  index: any;
+  index?: any;
 }) {
   return (
     <div className="flex items-center gap-4 border-b py-4">
