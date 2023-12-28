@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <main className="max-w-[100%] mx-auto p-4">
+        <main className="max-w-[100%] mx-auto px-4">
           <AppProvider>
             {/* <Provider> */}
             <Toaster />

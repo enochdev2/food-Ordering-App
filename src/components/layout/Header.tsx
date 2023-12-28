@@ -8,33 +8,37 @@ import { useContext, useState } from "react";
 
 export default function Header() {
   const { data: session, status } = useSession();
-  console.log(status);
   console.log(session);
 
   const userData = session?.user;
-  let userName = userData?.name || userData?.email;
-  // const {cartProducts} = useContext(CartContext);
+  let userName :any = userData?.name || userData?.email;
+  const {cartProducts} = useContext(CartContext) as any;
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  if (userName && userName.includes(" ")) {
-    userName = userName.split(" ")[0];
+  if (userName) {
+    userName = userName.split("@")[0]
+    
   }
+  console.log("🚀 ~ file: Header.tsx:20 ~ Header ~ userName:", userName)
+
+
+
   return (
-    <header>
+    <header className="px-3">
       <div className="flex items-center bg-transparent md:hidden justify-between">
         <Link
-          className="text-primary shadow-slate-800 font-semibold text-xl"
+          className="text-primary shadow-slate-800 font-semibold text-lg"
           href={"/"}
         >
           TECH-NOCH EATERY
         </Link>
         <div className="flex gap-8 items-center">
           <Link href={"/cart"} className="relative">
-            {/* <ShoppingCart /> */}
-            {/* {cartProducts?.length > 0 && (
+            <ShoppingCart /> 
+            {cartProducts?.length > 0 && (
               <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
             {cartProducts.length}
           </span>
-            )} */}
+            )}
           </Link>
           <button
             title="button"
@@ -84,25 +88,28 @@ export default function Header() {
 
       <div className="hidden md:flex bg-transparent items-center justify-between">
         <nav className="flex items-center gap-8 text-gray-500 font-semibold">
-          <Link className="text-primary font-semibold text-xl" href={"/"}>
+          <Link className="text-primary ml-4 font-semibold text-base" href={"/"}>
             <p>TECH-NOCH</p>
             <p>EATERY</p>
           </Link>
         </nav>
-        <nav className="flex items-center gap-8 grow bg-stone-800/40 text-gray-500 justify-center py-2 font-semibold rounded-full ">
+        <nav className="flex items-center gap-8 grow  text-gray-500 justify-center py-2 font-semibold rounded-full ">
+          <div className=" flex gap-3  px-3 py-3">
+
           <Link href={"/"}>Home</Link>
           <Link href={"/menu"}>Menu</Link>
           <Link href={"/#about"}>About</Link>
           <Link href={"/#contact"}>Contact</Link>
+          </div>
         </nav>
-        <nav className="flex items-center gap-4 text-gray-500 font-semibold">
+        <nav className="flex items-center gap-5 text-gray-500 font-semibold">
           <Link href={"/cart"} className="relative">
             <ShoppingCart />
-            {/* {cartProducts?.length > 0 && (
+            {cartProducts?.length > 0 && (
               <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
             {cartProducts.length}
           </span>
-            )} */}
+            )}
           </Link>
           {status === "unauthenticated" ? (
             <>
@@ -116,9 +123,10 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link href={"/profile"} className="whitespace-nowrap text-sm">
-                Hello, {userName}
+              <Link href={"/profile"} className="whitespace-nowrap ml-2 text-sm flex flex-col">
+                Hello, <br/> {userName}
               </Link>
+              
               <button
                 onClick={() => signOut()}
                 className="bg-primary rounded-full text-white px-8 py-2"

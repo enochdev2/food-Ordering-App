@@ -32,7 +32,6 @@ export async function GET() {
   db.connect();
   try {
     const menu = await MenuItem.find()
-    console.log("🚀 ~ file: route.ts:36 ~ GET ~ menu:", menu)
     return Response.json(menu);
   } catch (error) {
     

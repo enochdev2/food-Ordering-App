@@ -16,7 +16,7 @@ export default function MenuPage() {
     });
   }, []);
   return (
-    <section className="mt-8">
+    <section className="mt-8 px-6">
       {categories?.length > 0 && categories.map((c:Category) => (
         <div key={c._id}>
           <div className="text-center">

@@ -6,7 +6,7 @@ import SectionHeaders from "@/components/layout/SectionHeaders";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className=" px-2">
       <Hero />
       <HomeMenu />
       <section className="text-center my-16" id="about">
