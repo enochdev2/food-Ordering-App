@@ -9,7 +9,8 @@ export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
 
   const [userName, setUserName] = useState(user?.name || '');
   console.log("🚀 ~ file: UserForm.tsx:10 ~ UserForm ~ userName:", userName)
-  const [image, setImage] = useState(user?.image || '');
+  const [image, setImage] = useState<string>(user?.image || '');
+  const [link, setLink] = useState(user?.image || '');
   const [phone, setPhone] = useState(user?.phone || '');
   const [streetAddress, setStreetAddress] = useState(user?.streetAddress || '');
   const [postalCode, setPostalCode] = useState(user?.postalCode || '');
@@ -17,6 +18,7 @@ export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
   const [country, setCountry] = useState(user?.country || '');
   const [admin, setAdmin] = useState(user?.admin || false);
   const {data:loggedInUserData} = useProfile();
+
 
   const phones = phone || user?.phone
   function handleAddressChange(propName:string, value:SetStateAction<string>) {
@@ -26,6 +28,8 @@ export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
     if (propName === 'city') setCity(value);
     if (propName === 'country') setCountry(value);
   }
+
+
 
   return (
     <div className="md:flex gap-4">

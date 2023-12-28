@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
-  // const {loading, data:profile} = useProfile();
+  const {loading, data} = useProfile() as any;
 
   useEffect(() => {
     fetchOrders();
@@ -25,11 +25,11 @@ export default function OrdersPage() {
       })
     })
   }
-
+const admin = data.role == "admin" ? true : false
   return (
     <section className="mt-8 max-w-2xl mx-auto">
       <UserTabs
-      // isAdmin={profile.admin}
+      isAdmin={admin}
       />
       <div className="mt-8">
         {loadingOrders && <div>Loading orders...</div>}
@@ -46,7 +46,7 @@ export default function OrdersPage() {
                       (order.paid ? "bg-green-500" : "bg-red-400") +
                       " p-2 rounded-md text-white w-24 text-center"
                     }
-                  >
+                 >
                     {order.paid ? "Paid" : "Not paid"}
                   </div>
                 </div>

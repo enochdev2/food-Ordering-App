@@ -10,7 +10,7 @@ export default function CategoriesPage() {
   const [categoryName, setCategoryName] = useState<any>('');
   const [categories, setCategories] = useState<any>([]);
 
-  // const {loading:profileLoading, data:profileData} = useProfile();
+  const {loading:profileLoading, data:profileData} = useProfile() as any;
   const [editedCategory, setEditedCategory] = useState<any>('');
 
   useEffect(() => {
@@ -75,18 +75,19 @@ export default function CategoriesPage() {
     fetchCategories();
   }
 
-  // if (profileLoading) {
-  //   return 'Loading user info...';
-  // }
+  if (profileLoading) {
+    return 'Loading user info...';
+  }
 
-  // if (!profileData.admin) {
-  //   return 'Not an admin';
-  // }
+  if (profileData.role != 'admin' ) {
+    return 'Not an admin';
+  }
+
 
   return (
     <section className="mt-8 max-w-2xl mx-auto">
       <UserTabs
-      //  isAdmin={true}
+       isAdmin={true}
         />
       <form className="mt-8" onSubmit={handleCategorySubmit}>
         <div className="flex gap-2 items-end">

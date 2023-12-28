@@ -24,12 +24,15 @@ export default function ProfilePage() {
       fetch('/api/profile').then(response => {
         response.json().then(data => {
           setUser(data);
-          setIsAdmin(data.admin);
+          if(data.role === "admin"){
+            setIsAdmin(true);
+          }
           setProfileFetched(true);
         })
       });
     }
   }, [session, status]);
+console.log(isAdmin);
 
   async function handleProfileInfoUpdate(ev:FormEvent<HTMLFormElement>, data:any) {
     ev.preventDefault();
@@ -54,9 +57,9 @@ export default function ProfilePage() {
 
   }
 
-  // if (status === 'loading' || !profileFetched) {
-  //   return 'Loading...';
-  // }
+  if (status === 'loading' || !profileFetched) {
+    return 'Loading...';
+  }
 
   if (status === 'unauthenticated') {
     return redirect('/login');
@@ -65,7 +68,7 @@ export default function ProfilePage() {
   return (
     <section className="mt-8">
       <UserTabs 
-      // isAdmin={isAdmin}
+      isAdmin={isAdmin}
        />
       <div className="max-w-2xl mx-auto mt-8">
         <UserForm user={user} onSave={handleProfileInfoUpdate} />

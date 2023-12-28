@@ -10,7 +10,7 @@ import {useEffect, useState} from "react";
 export default function MenuItemsPage() {
 
   const [menuItems, setMenuItems] = useState([]);
-  const {loading, data} = useProfile();
+  const {loading, data} = useProfile() as any;
 
   useEffect(() => {
     fetch('/api/menu-items').then(res => {
@@ -20,18 +20,18 @@ export default function MenuItemsPage() {
     })
   }, []);
 
-  // if (loading) {
-  //   return 'Loading user info...';
-  // }
+  if (loading) {
+    return 'Loading user info...';
+  }
 
-  // if (!data.admin) {
-  //   return 'Not an admin.';
-  // }
+  if (data.role != "admin") {
+    return 'Not an admin.';
+  }
 
   return (
     <section className="mt-8 max-w-2xl mx-auto">
       <UserTabs 
-      // isAdmin={true} 
+      isAdmin={true} 
       />
       <div className="mt-8">
         <Link
