@@ -1,20 +1,20 @@
-
 type AddToCartButtons = {
-  hasSizesOrExtras: Boolean,
-  onClick: () => void,
-  basePrice: number | string,
-  image: string
-}
+  hasSizesOrExtras: Boolean;
+  onClick: () => void;
+  basePrice: number | string;
+  image: string;
+};
 
 export default function AddToCartButton({
-  hasSizesOrExtras, onClick, basePrice, image
-}:AddToCartButtons) {
+  hasSizesOrExtras,
+  onClick,
+  basePrice,
+  image,
+}: AddToCartButtons) {
   if (!hasSizesOrExtras) {
     return (
-      <div className="flying-button-parent mt-4">
-        <button onClick={onClick}>
-          Add to cart ${basePrice}
-        </button>
+      <div className="flying-button-parent  md:mt-3">
+        <button onClick={onClick}>Add to cart ${basePrice}</button>
       </div>
     );
   }
@@ -22,7 +22,7 @@ export default function AddToCartButton({
     <button
       type="button"
       onClick={onClick}
-      className="mt-4 bg-primary text-white rounded-full px-8 py-2"
+      className="mt-4 bg-primary text-sm text-white rounded-full px-3 py-2"
     >
       <span>Add to cart (from ${basePrice})</span>
     </button>

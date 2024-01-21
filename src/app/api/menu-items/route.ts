@@ -8,7 +8,6 @@ export async function POST(req: Request) {
   const data = await req.json();
 
   try {
-    
     const menuItemDoc = await new MenuItem(data);
   await menuItemDoc.save();
   return Response.json(menuItemDoc);

@@ -11,33 +11,29 @@ export default function Header() {
   console.log(session);
 
   const userData = session?.user;
-  let userName :any = userData?.name || userData?.email;
-  const {cartProducts} = useContext(CartContext) as any;
+  let userName: any = userData?.name || userData?.email;
+  const { cartProducts } = useContext(CartContext) as any;
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   if (userName) {
-    userName = userName.split("@")[0]
-    
+    userName = userName.split("@")[0];
   }
-  console.log("🚀 ~ file: Header.tsx:20 ~ Header ~ userName:", userName)
-
-
 
   return (
-    <header className="px-3">
-      <div className="flex items-center bg-transparent md:hidden justify-between">
+    <header className="px-3 shadow-lg">
+      <div className="flex items-center py-3 bg-transparent md:hidden justify-between">
         <Link
-          className="text-primary shadow-slate-800 font-semibold text-lg"
+          className="text-primary shadow-slate-800 font-semibold text-base"
           href={"/"}
         >
           TECH-NOCH EATERY
         </Link>
         <div className="flex gap-8 items-center">
           <Link href={"/cart"} className="relative">
-            <ShoppingCart /> 
+            <ShoppingCart />
             {cartProducts?.length > 0 && (
               <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
-            {cartProducts.length}
-          </span>
+                {cartProducts.length}
+              </span>
             )}
           </Link>
           <button
@@ -88,18 +84,20 @@ export default function Header() {
 
       <div className="hidden md:flex bg-transparent items-center justify-between">
         <nav className="flex items-center gap-8 text-gray-500 font-semibold">
-          <Link className="text-primary ml-4 font-semibold text-base" href={"/"}>
+          <Link
+            className="text-primary ml-4 font-semibold text-base"
+            href={"/"}
+          >
             <p>TECH-NOCH</p>
             <p>EATERY</p>
           </Link>
         </nav>
         <nav className="flex items-center gap-8 grow  text-gray-500 justify-center py-2 font-semibold rounded-full ">
           <div className=" flex gap-3  px-3 py-3">
-
-          <Link href={"/"}>Home</Link>
-          <Link href={"/menu"}>Menu</Link>
-          <Link href={"/#about"}>About</Link>
-          <Link href={"/#contact"}>Contact</Link>
+            <Link href={"/"}>Home</Link>
+            <Link href={"/menu"}>Menu</Link>
+            <Link href={"/#about"}>About</Link>
+            <Link href={"/#contact"}>Contact</Link>
           </div>
         </nav>
         <nav className="flex items-center gap-5 text-gray-500 font-semibold">
@@ -107,8 +105,8 @@ export default function Header() {
             <ShoppingCart />
             {cartProducts?.length > 0 && (
               <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
-            {cartProducts.length}
-          </span>
+                {cartProducts.length}
+              </span>
             )}
           </Link>
           {status === "unauthenticated" ? (
@@ -123,10 +121,13 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link href={"/profile"} className="whitespace-nowrap ml-2 text-sm flex flex-col">
-                Hello, <br/> {userName}
+              <Link
+                href={"/profile"}
+                className="whitespace-nowrap ml-2 text-sm flex flex-col"
+              >
+                Hello, <br /> {userName}
               </Link>
-              
+
               <button
                 onClick={() => signOut()}
                 className="bg-primary rounded-full text-white px-8 py-2"

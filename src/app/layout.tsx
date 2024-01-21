@@ -21,18 +21,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <main className="max-w-[100%] mx-auto px-4">
+        <main className="max-w-[100%] mx-auto px-4 min-h-screen">
           <AppProvider>
             {/* <Provider> */}
             <Toaster />
             <Header />
             {children}
-            <footer className="border-t p-8 text-center text-gray-500 mt-16">
-              &copy; 2023 All rights reserved
-            </footer>
             {/* </Provider> */}
           </AppProvider>
         </main>
+            <footer className="border-t p-8 text-center text-gray-500 mt-16">
+              &copy; 2023 All rights reserved
+            </footer>
       </body>
     </html>
   );

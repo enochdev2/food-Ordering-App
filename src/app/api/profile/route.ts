@@ -22,7 +22,6 @@ export async function PUT(req:Request) {
     {$set:{name, image, ...otherUserInfo}},
     {new: true});
     
-    console.log("🚀 ~ file: route.ts:21 ~ PUT ~ user:", user)
 
   return Response.json(true);
 }
@@ -50,7 +49,6 @@ export async function GET(req:Request) {
   }
 
   const user = await User.findOne(filterUser).lean();
-  console.log("🚀 ~ file: route.ts:49 ~ GET ~ user:", user)
   
 
   return Response.json(user);
