@@ -26,14 +26,12 @@ export default function Hero() {
           <span className="text-primary">Great Meal</span>
         </h1>
         <p className="my-6 text-white text-base md:text-lg  md:ml-8 ml-4">
-          Pizza is the missing piece that makes every day complete, a simple yet
+          Pizza is the missing piece that makes every day complete, simple yet
           delicious joy in life
         </p>
         <div className="flex gap-4 text-sm  md:ml-8 ml-4">
           <button className="flex justify-center bg-primary uppercase  items-center gap-2 text-white px-4 py-2 rounded-full">
-            <Link href="/menu">
-            Order now
-            </Link>
+            <Link href="/menu">Order now</Link>
             <FaLongArrowAltRight />
           </button>
           <button className="flex items-center border-0 gap-2 py-2 text-gray-100 font-semibold">
