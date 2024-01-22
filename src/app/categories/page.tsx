@@ -4,6 +4,7 @@ import UserTabs from "@/components/layout/UserTabs";
 import {FormEvent, useEffect, useState} from "react";
 import {useProfile} from "@/components/UseProfile";
 import toast from "react-hot-toast";
+import Loader from "@/components/Lorder";
 
 export default function CategoriesPage() {
 
@@ -76,7 +77,9 @@ export default function CategoriesPage() {
   }
 
   if (profileLoading) {
-    return 'Loading user info...';
+    return <div className="w-full h-screen flex justify-center items-center">
+    <Loader/>
+  </div>
   }
 
   if (profileData.role != 'admin' ) {

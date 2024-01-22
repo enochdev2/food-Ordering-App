@@ -4,6 +4,7 @@ import Right from "@/components/icons/Right";
 import EditableImage from "@/components/layout/EditableImage";
 import MenuItemForm from "@/components/layout/MenuItemForm";
 import UserTabs from "@/components/layout/UserTabs";
+import Loader from "@/components/Lorder";
 import {useProfile} from "@/components/UseProfile";
 import { FormInfo } from "@/interface";
 import Link from "next/link";
@@ -14,7 +15,7 @@ import toast from "react-hot-toast";
 export default function NewMenuItemPage() {
 
   const [redirectToItems, setRedirectToItems] = useState(false);
-  const {loading, data} = useProfile();
+  const {loading, data} = useProfile() as any;
 
   async function handleFormSubmit(ev:FormEvent<HTMLFormElement>, data:FormInfo) {
     ev.preventDefault();
@@ -44,17 +45,19 @@ export default function NewMenuItemPage() {
   }
 
   if (loading) {
-    return 'Loading user info...';
+    return <div className="w-full h-screen flex justify-center items-center">
+    <Loader/>
+  </div>
   }
 
-  // if (!data?.admin) {
-  //   return 'Not an admin.';
-  // }
+  if (data.role != 'admin' ) {
+    return 'Not an admin';
+  }
 
   return (
     <section className="mt-8">
       <UserTabs 
-      // isAdmin={true}
+      isAdmin={true}
        />
       <div className="max-w-2xl mx-auto mt-8">
         <Link href={'/menu-items'} className="button">

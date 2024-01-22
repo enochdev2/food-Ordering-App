@@ -1,4 +1,5 @@
 'use client';
+import Loader from "@/components/Lorder";
 import EditableImage from "@/components/layout/EditableImage";
 import InfoBox from "@/components/layout/InfoBox";
 import SuccessBox from "@/components/layout/SuccessBox";
@@ -58,7 +59,9 @@ console.log(isAdmin);
   }
 
   if (status === 'loading' || !profileFetched) {
-    return 'Loading...';
+    return <div className="w-full h-screen flex justify-center items-center">
+    <Loader/>
+  </div>
   }
 
   if (status === 'unauthenticated') {

@@ -1,6 +1,7 @@
 'use client';
 import UserForm from "@/components/layout/UserForm";
 import UserTabs from "@/components/layout/UserTabs";
+import Loader from "@/components/Lorder";
 import {useProfile} from "@/components/UseProfile";
 import { User } from "@/interface";
 import {useParams} from "next/navigation";
@@ -8,7 +9,7 @@ import {FormEvent, useEffect, useState} from "react";
 import toast from "react-hot-toast";
 
 export default function EditUserPage() {
-  const {loading, data} = useProfile();
+  const {loading, data} = useProfile() as any;
   const [user, setUser] = useState<User | null>(null);
   const {id} = useParams();
   console.log("🚀 ~ file: page.tsx:14 ~ EditUserPage ~ id:", id)
@@ -42,18 +43,19 @@ export default function EditUserPage() {
     });
   }
 
-  // if (loading) {
-  //   return 'Loading user profile...';
-  // }
+  if (loading) {
+    return <div className="w-full h-screen flex justify-center items-center">
+      <Loader/>
+      </div>
+  }
 
-  // if (!data.admin) {
-  //   return 'Not an admin';
-  // }
+  const admin = data.role == "admin" ? true : false
+
 
   return (
     <section className="mt-8 mx-auto max-w-2xl">
       <UserTabs
-      //  isAdmin={true} 
+       isAdmin={admin} 
        />
       <div className="mt-8">
         <UserForm user={user} onSave={handleSaveButtonClick} />

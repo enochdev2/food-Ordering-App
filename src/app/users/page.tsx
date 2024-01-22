@@ -1,5 +1,6 @@
 'use client';
 import UserTabs from "@/components/layout/UserTabs";
+import Loader from "@/components/Lorder";
 import {useProfile} from "@/components/UseProfile";
 import { User } from "@/interface";
 import Link from "next/link";
@@ -19,7 +20,9 @@ export default function UsersPage() {
   }, []);
 
   if (loading) {
-    return 'Loading user info...';
+    return <div className="w-full h-screen flex justify-center items-center">
+    <Loader/>
+  </div>
   }
 
   if (data.role != "admin") {

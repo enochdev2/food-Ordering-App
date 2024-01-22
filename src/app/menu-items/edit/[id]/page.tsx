@@ -4,6 +4,7 @@ import Left from "@/components/icons/Left";
 import EditableImage from "@/components/layout/EditableImage";
 import MenuItemForm from "@/components/layout/MenuItemForm";
 import UserTabs from "@/components/layout/UserTabs";
+import Loader from "@/components/Lorder";
 import {useProfile} from "@/components/UseProfile";
 import { FormInfo, MenuItem } from "@/interface";
 import Link from "next/link";
@@ -17,7 +18,7 @@ export default function EditMenuItemPage() {
 
   const [menuItem, setMenuItem] = useState(null);
   const [redirectToItems, setRedirectToItems] = useState(false);
-  const {loading, data} = useProfile();
+  const {loading, data} = useProfile() as any
 
   useEffect(() => {
     fetch('/api/menu-items').then(res => {
@@ -76,18 +77,20 @@ export default function EditMenuItemPage() {
     return redirect('/menu-items');
   }
 
-  // if (loading) {
-  //   return 'Loading user info...';
-  // }
+  if (loading) {
+    return <div className="w-full h-screen flex justify-center items-center">
+      <Loader/>
+    </div>
+  }
 
-  // if (!data.admin) {
-  //   return 'Not an admin.';
-  // }
+   if (data.role != 'admin' ) {
+    return 'Not an admin';
+  }
 
   return (
     <section className="mt-8">
       <UserTabs
-      //  isAdmin={true} 
+       isAdmin={true} 
        />
       <div className="max-w-2xl mx-auto mt-8">
         <Link href={'/menu-items'} className="button">

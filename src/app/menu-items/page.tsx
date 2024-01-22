@@ -1,6 +1,7 @@
 'use client';
 import Right from "@/components/icons/Right";
 import UserTabs from "@/components/layout/UserTabs";
+import Loader from "@/components/Lorder";
 import {useProfile} from "@/components/UseProfile";
 import { MenuItem } from "@/interface";
 import Image from "next/image";
@@ -21,7 +22,9 @@ export default function MenuItemsPage() {
   }, []);
 
   if (loading) {
-    return 'Loading user info...';
+    return <div className="w-full h-screen flex justify-center items-center">
+    <Loader/>
+  </div>
   }
 
   if (data.role != "admin") {

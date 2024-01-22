@@ -50,7 +50,7 @@ export default function Header() {
       {mobileNavOpen && (
         <div
           onClick={() => setMobileNavOpen(false)}
-          className="md:hidden p-4 bg-gray-200 rounded-lg mt-2 flex flex-col gap-2 text-center"
+          className="md:hidden p-4 bg-gray-200  rounded-lg mt-2 flex flex-col gap-2 text-center"
         >
           <Link href={"/"}>Home</Link>
           <Link href={"/menu"}>Menu</Link>
@@ -93,7 +93,7 @@ export default function Header() {
           </Link>
         </nav>
         <nav className="flex items-center gap-8 grow  text-gray-500 justify-center py-2 font-semibold rounded-full ">
-          <div className=" flex gap-3  px-3 py-3">
+          <div className=" flex gap-4  px-3 py-3">
             <Link href={"/"}>Home</Link>
             <Link href={"/menu"}>Menu</Link>
             <Link href={"/#about"}>About</Link>

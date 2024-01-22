@@ -1,6 +1,7 @@
 // import Right from "@/components/icons/Right";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -30,7 +31,9 @@ export default function Hero() {
         </p>
         <div className="flex gap-4 text-sm  md:ml-8 ml-4">
           <button className="flex justify-center bg-primary uppercase  items-center gap-2 text-white px-4 py-2 rounded-full">
+            <Link href="/menu">
             Order now
+            </Link>
             <FaLongArrowAltRight />
           </button>
           <button className="flex items-center border-0 gap-2 py-2 text-gray-100 font-semibold">
