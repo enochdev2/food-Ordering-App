@@ -6,7 +6,6 @@ import {Category} from "@/models/Category";
 export async function POST(req:Request) {
   db.connect(); 
   const {name} = await req.json();
-  console.log(name);
   
   
   try {

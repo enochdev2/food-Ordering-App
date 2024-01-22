@@ -9,7 +9,6 @@ export function useProfile() {
       fetch('/api/profile').then(response => {
         response.json().then(data => {
           setData(data);
-          console.log("🚀 ~ file: UseProfile.ts:12 ~ response.json ~ data:", data)
           setLoading(false);
         });
       })

@@ -8,7 +8,6 @@ import {SetStateAction, useState} from "react";
 export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
 
   const [userName, setUserName] = useState(user?.name || '');
-  console.log("🚀 ~ file: UserForm.tsx:10 ~ UserForm ~ userName:", userName)
   const [image, setImage] = useState<string>(user?.image || '');
   const [link, setLink] = useState(user?.image || '');
   const [phone, setPhone] = useState(user?.phone || '');

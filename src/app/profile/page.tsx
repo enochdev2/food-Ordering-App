@@ -33,7 +33,6 @@ export default function ProfilePage() {
       });
     }
   }, [session, status]);
-console.log(isAdmin);
 
   async function handleProfileInfoUpdate(ev:FormEvent<HTMLFormElement>, data:any) {
     ev.preventDefault();

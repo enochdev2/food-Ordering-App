@@ -8,7 +8,6 @@ import { useContext, useState } from "react";
 
 export default function Header() {
   const { data: session, status } = useSession();
-  console.log(session);
 
   const userData = session?.user;
   let userName: any = userData?.name || userData?.email;

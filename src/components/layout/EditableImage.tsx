@@ -16,7 +16,6 @@ export default function EditableImage({ link, setLink }: any) {
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
   const [image, setImage] = useState<any>({});
-console.log("link:", link);
 
   useEffect(() => {
     if (image) {

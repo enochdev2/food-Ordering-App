@@ -5,7 +5,6 @@ import bcrypt from "bcrypt";
 export async function POST(req:Request) {
   const body = await req.json();
   db.connect()
-  console.log(db.connect);
   
   const pass = body.password;
   if (!pass?.length || pass.length < 5) {
@@ -17,7 +16,6 @@ export async function POST(req:Request) {
   body.password = bcrypt.hashSync(notHashedPassword, salt);
 
   const createdUser = await User.create(body);
-  console.log(createdUser);
   
   return Response.json(createdUser);
 }
