@@ -22,7 +22,7 @@ export default function Home() {
           <p>Laborum molestias neque nulla obcaecati odio quia quod reprehenderit sit vitae voluptates? Eos, tenetur.</p>
         </div>
       </section>
-      <section className="text-center my-8" id="contact">
+      <section className="text-center my-8 mb-14" id="contact">
         <SectionHeaders
           subHeader={'Don\'t hesitate'}
           mainHeader={'Contact us'}
