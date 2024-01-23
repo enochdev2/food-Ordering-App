@@ -1,4 +1,3 @@
-// import {isAdmin} from "@/app/api/auth/[...nextauth]/route";
 import db from "@/libs/db";
 import {Category} from "@/models/Category";
 

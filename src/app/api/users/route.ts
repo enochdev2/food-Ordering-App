@@ -1,4 +1,3 @@
-// import {isAdmin} from "@/app/api/auth/[...nextauth]/route";
 import db from "@/libs/db";
 import {User} from "@/models/User";
 import mongoose from "mongoose";
