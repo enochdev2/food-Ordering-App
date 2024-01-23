@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Provider from "@/SessionProvider";
 import { Toaster } from "react-hot-toast";
 import { AppProvider } from "@/components/AppContext";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,10 +30,8 @@ export default function RootLayout({
             {children}
             {/* </Provider> */}
           </AppProvider>
-        </main>
-            <footer className="border-t p-8 text-center text-gray-500 mt-16">
-              &copy; 2023 All rights reserved
-            </footer>
+        </main>    
+        <Footer/>    
       </body>
     </html>
   );

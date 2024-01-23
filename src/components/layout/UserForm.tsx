@@ -64,21 +64,21 @@ export default function UserForm({user,onSave}:{user:User|null,onSave:any}) {
           addressProps={{phones, streetAddress, postalCode, city, country}}
           setAddressProp={handleAddressChange}
         />
-        {/* {loggedInUserData.admin && ( */}
-          <div>
-            <label className="p-2 inline-flex items-center gap-2 mb-2" htmlFor="adminCb">
-              <input
-              title="checked"
-                id="adminCb" type="checkbox" className="" value={'1'}
-                // checked={admin}
-                onChange={ev => setAdmin(ev.target.checked)}
-              />
-              <span>Admin</span>
-            </label>
-          </div>
-        {/* // )} */}
+      
         <button type="submit">Save</button>
       </form>
     </div>
   );
-}
+}  {/* {loggedInUserData.admin && ( */}
+<div>
+  <label className="p-2 inline-flex items-center gap-2 mb-2" htmlFor="adminCb">
+    <input
+    title="checked"
+      id="adminCb" type="checkbox" className="" value={'1'}
+      // checked={admin}
+      onChange={ev => setAdmin(ev.target.checked)}
+    />
+    <span>Admin</span>
+  </label>
+</div>
+{/* // )} */}
