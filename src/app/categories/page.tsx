@@ -46,13 +46,13 @@ export default function CategoriesPage() {
       else
         reject();
     });
-    // await toast.promise(creationPromise, {
-    //   loading: editedCategory
-    //              ? 'Updating category...'
-    //              : 'Creating your new category...',
-    //   success: editedCategory ? 'Category updated' : 'Category created',
-    //   error: 'Error, sorry...',
-    // });
+    await toast.promise(creationPromise, {
+      loading: editedCategory
+                 ? 'Updating category...'
+                 : 'Creating your new category...',
+      success: editedCategory ? 'Category updated' : 'Category created',
+      error: 'Error, sorry...',
+    });
   }
 
   async function handleDeleteClick(_id:string) {
@@ -98,7 +98,7 @@ export default function CategoriesPage() {
             <label>
               {editedCategory ? 'Update category' : 'New category name'}
               {editedCategory && (
-                <>: <b>{editedCategory?.name}</b></>
+                <>: <b>{`${editedCategory?.name.tostring()}`}</b></>
               )}
             </label>
             <input title="text" type="text"

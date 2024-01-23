@@ -15,7 +15,7 @@ export default function EditableImage({ link, setLink }: any) {
   const [file, setFile] = useState(undefined);
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
-  const [image, setImage] = useState<any>({});
+  const [image, setImage] = useState<any>("");
 
   useEffect(() => {
     if (image) {
@@ -52,8 +52,6 @@ export default function EditableImage({ link, setLink }: any) {
       }
     );
   };
-
- 
 
   return (
     <>

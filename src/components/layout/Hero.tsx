@@ -1,4 +1,3 @@
-// import Right from "@/components/icons/Right";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +10,6 @@ export default function Hero() {
         <Image
           src={"/food-delivery.jpeg"}
           fill
-          // objectFit={"}
           alt={"pizza"}
         />
       </div>
@@ -45,7 +43,6 @@ export default function Hero() {
           <Image
             src={"/rice3.jpeg"}
             fill
-            // objectFit={"contain"}
             alt={"pizza"}
             className="justify-end self-center"
           />
