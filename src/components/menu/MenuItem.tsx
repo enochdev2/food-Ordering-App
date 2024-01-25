@@ -3,7 +3,6 @@ import MenuItemTile from "@/components/menu/MenuItemTile";
 import { FormInfo } from "@/interface";
 import Image from "next/image";
 import { ChangeEvent, useContext, useState } from "react";
-// import FlyingButton from "react-flying-item";
 import toast from "react-hot-toast";
 
 export default function MenuItem(menuItem: FormInfo) {
