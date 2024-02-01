@@ -29,6 +29,7 @@ export const authOptions: NextAuthOptions = {
           
           try { 
             const user = await User.findOne({ email });
+            console.log("🚀 ~ authorize ~ user:", user)
             if (!user) {
               return null;
             }
@@ -36,6 +37,7 @@ export const authOptions: NextAuthOptions = {
               password,
               user.password
             );
+            console.log("🚀 ~ authorize ~ passwordsMatch:", passwordsMatch)
             if (!passwordsMatch) {
               return null;
             }
